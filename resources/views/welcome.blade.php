@@ -2,6 +2,13 @@
 
 @section('content')
 
+<div class="ui grid">
+    <div class="ten wide column">
+@extends('layouts.search-bar')
+
+@extends('layouts.nav')
+        </div>
+</div>
 
 		<!--Container-->
 		<div class="pad-zero">
@@ -17,7 +24,7 @@
 						
 						<!--About Nav-->
 						<div class="call-to-action about">
-                             @extends('layouts.nav')
+                            
 						</div>
 						<!--/About Nav-->
 						

@@ -7,12 +7,11 @@
   </a>
   <div class="right menu">
    
-        <a class="item">
+        <a class="item" href="{{ route('welcome') }}">
 			Acceuil
 		  </a>
-		  <a class="item">
-			Devenir un professionel
-		  </a>
+		  <a class="item">Devenir un professionel</a>
+       <a href="{{ route('posts.create') }}" class="item" style="color: white;background-color: black;">Creer une annonce</a>
 		  <div class="item">
 	  <div class="ui icon input">
         <input type="text" placeholder="Search...">
@@ -35,8 +34,9 @@
           <div class="item">
           <ul class="ui selection dropdown">
           <i class="dropdown icon"></i>
-      <li class="default text">{{ Auth::user()->name }}</li>
-      <div class="menu">
+      <li class="default text"><a href="{{ route('home') }}"><i class="icon user"></i>{{ Auth::user()->name }}</a></li> <div class="menu">
+     <li class="item"><a href="{{ route('home') }}"><i class="icon user"></i>Mon compte</a></li>
+     
         <li class="item"><a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -71,6 +71,9 @@
 		  <a class="item">
 			Devenir un professionel
 		  </a>
+             <a href="{{ route('posts.create') }}" class="ui secondary button">
+              Creer une annonce
+            </a>
 	  <div class="ui icon input">
         <input type="text" placeholder="Search...">
         <i class="search link icon"></i>
@@ -92,7 +95,7 @@
           <div class="item">
           <ul class="ui selection dropdown">
           <i class="dropdown icon"></i>
-      <li class="default text">{{ Auth::user()->name }}</li>
+              <li class="default text"><a href="{{ route('home') }}">{{ Auth::user()->name }}</a></li>
       <div class="menu">
         <li class="item"><a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

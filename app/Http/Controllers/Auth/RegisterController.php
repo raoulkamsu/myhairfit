@@ -71,6 +71,7 @@ class RegisterController extends Controller
         $user= User::create([
             'name' => $data['name'],
             'firstName'=>$data['firstName'],
+            'genre'=>$data['genre'],
            // 'zip'=>$data['zip'],
             //'adress'=>$data['adress'],
            // 'city'=>$data['city'],
@@ -153,7 +154,30 @@ class RegisterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->Validator($request, array(
+            'name' => 'required|string|max:255',
+            'firstName' => 'required|string|max:255',
+            'genre' => 'required|string|max:255',
+            'adress' => 'required|string|max:255',
+            'zip' => 'required|string|max:255',
+            'province' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            //'password' => 'required|string|min:6|confirmed',
+        ));
+        
+        $user = User::find($id);
+        
+        $user->name = $request->input('name');
+        $user->firstName = $request->input('firstName');
+        $user->genre = $request->input('genre');
+        $user->adress = $request->input('adress');
+        $user->zip = $request->input('zip');
+        $user->province = $request->input('province');
+        $user->email = $request->input('email');
+        
+        $user->save();
+        
+        return redirect()->route('/home');
     }
 
     /**

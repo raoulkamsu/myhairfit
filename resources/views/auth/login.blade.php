@@ -55,14 +55,21 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="ui button">
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a  href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
                             </div>
+                                 <div class="col-md-8 col-md-offset-4">
+                                Pas de compte? 
+                                <a  href="{{ route('register') }}">
+                                    Inscrivez vous.
+                                </a>
+                            </div>
+                            
                         </div>
                     </form>
                 </div>
